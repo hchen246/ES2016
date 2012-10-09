@@ -9,6 +9,12 @@ Main languages are JavaScript,
 First install Brunch: `sudo npm install -g brunch` and then run `brunch new <app> -s https://github.com/damassi/Javascript-App-Skeleton` & then `npm install` and finally `brunch build`.  To continually watch for changes, use `brunch watch`.
 See more info on the [official site](http://brunch.io)
 
+## Unit Testing
+
+The Mocha test-suite is included by default.  Files located in `tests` that end with `_test.coffee` (or .js) are automatically packaged.  
+
+To run tests independent of the browser, execute `brunch test`; to run them in the browser, navigate to `public/test/index.html`.  
+
 ## Overview
 
     config.coffee
