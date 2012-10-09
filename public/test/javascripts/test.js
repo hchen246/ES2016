@@ -74,10 +74,46 @@
   globals.require.brunch = true;
 })();
 
-window.require.define({"test/spec": function(exports, require, module) {
-  
+window.require.define({"test/test-helpers": function(exports, require, module) {
+  var chai, sinonChai;
 
+  chai = require('chai');
+
+  sinonChai = require('sinon-chai');
+
+  chai.use(sinonChai);
+
+  module.exports = {
+    expect: chai.expect,
+    sinon: require('sinon')
+  };
   
 }});
 
+window.require.define({"test/views/HomeView_test": function(exports, require, module) {
+  var HomeView;
 
+  HomeView = require('views/HomeView');
+
+  describe('HomeView', function() {
+    beforeEach(function() {
+      this.view = new HomeView();
+      return this.view.render();
+    });
+    afterEach(function() {
+      return this.view.remove();
+    });
+    it('Should display an artist', function() {
+      return expect(this.view.$el.find('#artist')).to.have.length(1);
+    });
+    it('The artist should be Robert Ashley', function() {
+      return expect(this.view.$el.find('#artist').text()).to.equal('Robert Ashley');
+    });
+    return it('Should list seven operas', function() {
+      return expect(this.view.$el.find('#operas').find('li')).to.have.length(9);
+    });
+  });
+  
+}});
+
+window.require('test/views/HomeView_test');

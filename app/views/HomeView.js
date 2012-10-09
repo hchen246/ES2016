@@ -8,7 +8,7 @@
  */
 
 var View = require('./supers/View');
-var template = require('./templates/HomeViewTemplate');
+var template = require('templates/homeViewTemplate');
 
 module.exports = View.extend({
 
@@ -50,7 +50,18 @@ module.exports = View.extend({
 	 */
 	getRenderData: function() {
 		return {
-			content: "Application Content"
+			artist: "Robert Ashley",
+			operas: [
+				"Music with Roots in the Aether (television opera) (1976)",
+				"Perfect Lives (television opera) (1978–83)",
+				"Atalanta (Acts of God) (1982–91)",
+				"Improvement (Don Leaves Linda) (1985)",
+				"eL/Aficionado (1987)",
+				"Now Eleanor's Idea (1993)",
+				"Foreign Experiences (1994)",
+				"Celestial excursions (2003)",
+				"Concrete (2006)"
+			]
 		}
 	}
 

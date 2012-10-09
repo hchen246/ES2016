@@ -234,6 +234,78 @@ window.require.define({"initialize": function(exports, require, module) {
   
 }});
 
+window.require.define({"models/supers/Collection": function(exports, require, module) {
+  /**
+   * Base Class for all Backbone Collections
+   * 
+   * @langversion JavaScript
+   * 
+   * @author 
+   * @since  
+   */
+
+  module.exports = Backbone.Collection.extend({
+
+  	//--------------------------------------
+  	//+ PUBLIC PROPERTIES / CONSTANTS
+  	//--------------------------------------
+
+  	//--------------------------------------
+  	//+ INHERITED / OVERRIDES
+  	//--------------------------------------
+  	
+  	//--------------------------------------
+    	//+ PUBLIC METHODS / GETTERS / SETTERS
+    	//--------------------------------------
+
+    	//--------------------------------------
+    	//+ EVENT HANDLERS
+    	//--------------------------------------
+
+    	//--------------------------------------
+    	//+ PRIVATE AND PROTECTED METHODS
+    	//--------------------------------------
+
+  });
+  
+}});
+
+window.require.define({"models/supers/Model": function(exports, require, module) {
+  /**
+   * Base Class for all Backbone Models
+   * 
+   * @langversion JavaScript
+   * 
+   * @author 
+   * @since  
+   */
+
+  module.exports = Backbone.Model.extend({
+
+  	//--------------------------------------
+  	//+ PUBLIC PROPERTIES / CONSTANTS
+  	//--------------------------------------
+
+  	//--------------------------------------
+  	//+ INHERITED / OVERRIDES
+  	//--------------------------------------
+  	
+  	//--------------------------------------
+    	//+ PUBLIC METHODS / GETTERS / SETTERS
+    	//--------------------------------------
+
+    	//--------------------------------------
+    	//+ EVENT HANDLERS
+    	//--------------------------------------
+
+    	//--------------------------------------
+    	//+ PRIVATE AND PROTECTED METHODS
+    	//--------------------------------------
+    
+  });
+  
+}});
+
 window.require.define({"routers/Router": function(exports, require, module) {
   /**
    * Backbone Primary Router
@@ -351,7 +423,7 @@ window.require.define({"views/HomeView": function(exports, require, module) {
    */
 
   var View = require('./supers/View');
-  var template = require('./templates/HomeViewTemplate');
+  var template = require('templates/homeViewTemplate');
 
   module.exports = View.extend({
 
@@ -393,7 +465,18 @@ window.require.define({"views/HomeView": function(exports, require, module) {
   	 */
   	getRenderData: function() {
   		return {
-  			content: "Application Content"
+  			artist: "Robert Ashley",
+  			operas: [
+  				"Music with Roots in the Aether (television opera) (1976)",
+  				"Perfect Lives (television opera) (1978–83)",
+  				"Atalanta (Acts of God) (1982–91)",
+  				"Improvement (Don Leaves Linda) (1985)",
+  				"eL/Aficionado (1987)",
+  				"Now Eleanor's Idea (1993)",
+  				"Foreign Experiences (1994)",
+  				"Celestial excursions (2003)",
+  				"Concrete (2006)"
+  			]
   		}
   	}
 
@@ -408,6 +491,75 @@ window.require.define({"views/HomeView": function(exports, require, module) {
   	//--------------------------------------
   	//+ PRIVATE AND PROTECTED METHODS
   	//--------------------------------------
+
+  });
+  
+}});
+
+window.require.define({"views/supers/View": function(exports, require, module) {
+  /**
+   * View Base Class
+   * 
+   * @langversion JavaScript
+   * 
+   * @author 
+   * @since  
+   */
+
+  require('helpers/ViewHelper');
+
+  module.exports = Backbone.View.extend({
+
+    //--------------------------------------
+    //+ PUBLIC PROPERTIES / CONSTANTS
+    //--------------------------------------
+
+    /*
+     * @private
+     */
+    template: function() {},
+    /*
+     * @private
+     */
+    getRenderData: function() {},
+
+    //--------------------------------------
+    //+ INHERITED / OVERRIDES
+    //--------------------------------------
+    
+    /*
+     * @private
+     */
+    initialize: function() {
+      this.render = _.bind(this.render, this);
+    },
+
+    /*
+     * @private
+     */
+    render: function() {
+      this.$el.html( this.template( this.getRenderData() ) );
+      this.afterRender();
+      
+      return this;
+    },
+
+    /*
+     * @private
+     */
+    afterRender: function() {}
+
+    //--------------------------------------
+    //+ PUBLIC METHODS / GETTERS / SETTERS
+    //--------------------------------------
+
+    //--------------------------------------
+    //+ EVENT HANDLERS
+    //--------------------------------------
+
+    //--------------------------------------
+    //+ PRIVATE AND PROTECTED METHODS
+    //--------------------------------------
 
   });
   
