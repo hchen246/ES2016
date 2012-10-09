@@ -4,6 +4,12 @@
   <title>Mocha Tests</title>
   <link rel="stylesheet" href="stylesheets/test.css" />
 
+  <!-- Live Reload -->
+  <script>
+    window.brunch = window.brunch || {};
+    window.brunch['auto-reload'] = {enabled: true};
+  </script>
+  
   <script src="../javascripts/vendor.js"></script>
   <script src="../javascripts/templates.js"></script>
   <script src="../javascripts/app.js"></script>
@@ -18,6 +24,7 @@
       mocha.run();
     });
   </script>
+
 </head>
 <body>
   <div id="mocha"></div>
