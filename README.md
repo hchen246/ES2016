@@ -3,6 +3,7 @@
 Main languages are JavaScript,
 [Stylus for CSS pre-processing](http://learnboost.github.com/stylus/) and
 [Handlebars for templating](http://handlebarsjs.com/).  Also included is [Backbone.Mediator](https://github.com/chalbert/Backbone-Mediator) for implementing Pub/Sub patterns.
+Live-reload for automatic page-refreshes during development.  
 
 ## Installation
 
@@ -13,7 +14,7 @@ See more info on the [official site](http://brunch.io)
 
 The Mocha test-suite is included by default.  Files located in `tests` that end with `_test.coffee` (or .js) are automatically packaged.  
 
-To run tests independent of the browser, execute `brunch test`; to run them in the browser, navigate to `public/test/index.html`.  Test-related code is automatically recompiled during `brunch build` and `brunch watch`.
+To run tests independent of the browser, execute `brunch test`; to run them in the browser, navigate to `public/test/index.html`.  Test-related code is automatically recompiled during `brunch build` and `brunch watch`, and will automatically refresh the test page.
 
 ## Overview
 
