@@ -13,7 +13,7 @@ See more info on the [official site](http://brunch.io)
 
 The Mocha test-suite is included by default.  Files located in `tests` that end with `_test.coffee` (or .js) are automatically packaged.  
 
-To run tests independent of the browser, execute `brunch test`; to run them in the browser, navigate to `public/test/index.html`.  
+To run tests independent of the browser, execute `brunch test`; to run them in the browser, navigate to `public/test/index.html`.  Test-related code is automatically recompiled during `brunch build` and `brunch watch`.
 
 ## Overview
 
