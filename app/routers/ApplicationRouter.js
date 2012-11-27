@@ -7,9 +7,10 @@
  * @since  
  */
 
+var Router = require('core/Router');
 var application = require('Application');
 
-module.exports = Backbone.Router.extend({
+ApplicationRouter = Router.extend({
 
 	//--------------------------------------
   	//+ Routes
@@ -27,3 +28,5 @@ module.exports = Backbone.Router.extend({
       $( 'body' ).html( application.homeView.render().el );
   	}
 });
+
+module.exports = ApplicationRouter;

@@ -27,11 +27,11 @@ Application = {
 
         // Import views
         var HomeView = require('views/HomeView');
-        var Router = require('routers/Router');
+        var ApplicationRouter = require('routers/ApplicationRouter');
 
         // Initialize views
         this.homeView = new HomeView();
-        this.router = new Router();
+        this.applicationRouter = new ApplicationRouter();
 
         if (typeof Object.freeze === 'function') Object.freeze(this);
     }

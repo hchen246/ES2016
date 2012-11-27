@@ -7,10 +7,10 @@
  * @since  
  */
 
-var View = require('./supers/View');
+var View     = require('core/View');
 var template = require('templates/homeViewTemplate');
 
-module.exports = View.extend({
+HomeView = View.extend({
 
 	//--------------------------------------
 	//+ PUBLIC PROPERTIES / CONSTANTS
@@ -78,3 +78,6 @@ module.exports = View.extend({
 	//--------------------------------------
 
 });
+
+module.exports = HomeView;
+

@@ -9,7 +9,7 @@
 
 require('helpers/ViewHelper');
 
-module.exports = Backbone.View.extend({
+View = Backbone.View.extend({
 
   //--------------------------------------
   //+ PUBLIC PROPERTIES / CONSTANTS
@@ -63,3 +63,5 @@ module.exports = Backbone.View.extend({
   //--------------------------------------
 
 });
+
+module.exports = View;

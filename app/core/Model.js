@@ -1,5 +1,5 @@
 /**
- * Base Class for all Backbone Collections
+ * Base Class for all Backbone Models
  * 
  * @langversion JavaScript
  * 
@@ -7,7 +7,7 @@
  * @since  
  */
 
-module.exports = Backbone.Collection.extend({
+Model = Backbone.Model.extend({
 
 	//--------------------------------------
 	//+ PUBLIC PROPERTIES / CONSTANTS
@@ -28,5 +28,7 @@ module.exports = Backbone.Collection.extend({
   	//--------------------------------------
   	//+ PRIVATE AND PROTECTED METHODS
   	//--------------------------------------
-
+  
 });
+
+module.exports = Model;

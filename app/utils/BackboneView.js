@@ -7,10 +7,10 @@
  * @since  
  */
 
-var View = require('./supers/View');
+var View     = require('core/View');
 var template = require('templates/HomeViewTemplate');
 
-module.exports = View.extend({
+BackboneView = View.extend({
 
 	//--------------------------------------
 	//+ PUBLIC PROPERTIES / CONSTANTS
@@ -67,3 +67,5 @@ module.exports = View.extend({
 	//--------------------------------------
 
 });
+
+module.exports = BackboneView;
