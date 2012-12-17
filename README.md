@@ -1,11 +1,23 @@
 # Javascript App Skeleton for use with [Brunch](http://brunch.io/)
 
 Main languages are JavaScript,
-[Stylus for CSS pre-processing](http://learnboost.github.com/stylus/) and
+[SASS for CSS pre-processing](http://sass-lang.com) and
 [Handlebars for templating](http://handlebarsjs.com/).  Also included is [Backbone.Mediator](https://github.com/chalbert/Backbone-Mediator) for implementing Pub/Sub patterns.
 Live-reload for automatic page-refreshes during development.  
 
 ## Installation
+
+- Install node:  http://nodejs.org/
+- Install Brunch: `sudo npm install -g brunch` 
+- Install SASS: `sudo gem install sass`
+- Run `brunch new <app name> -s https://github.com/damassi/Javascript-App-Skeleton` to download the app skeleton into your project folder.  
+- cd into your new app folder
+- Run `sudo npm install` to install any node dev dependencies listed in package.json. 
+
+## Running Brunch
+- To build your project run `brunch build`.  
+- To continually watch your project folder changes and auto-compile, use `brunch watch`.
+- If you want to start a simple server, run `brunch watch --server`
 
 First install Brunch: `sudo npm install -g brunch` and then run `brunch new <app> -s https://github.com/damassi/Javascript-App-Skeleton` & then `npm install` and finally `brunch build`.  To continually watch for changes, use `brunch watch`.
 See more info on the [official site](http://brunch.io)
