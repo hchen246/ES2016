@@ -19,7 +19,7 @@ describe( 'HomeView', function() {
     expect( view.$el.find('#artist').text()).to.equal( 'Robert Ashley' );
   });
     
-  it( 'Should list seven operas', function() {
+  it( 'Should list nine operas', function() {
     expect( view.$el.find('#operas').find('li')).to.have.length( 9 );
   });
     
