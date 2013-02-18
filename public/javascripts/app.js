@@ -90,16 +90,12 @@ window.require.define({"Application": function(exports, require, module) {
    * @since  
    */
 
-  Application = {
+  var Application = {
 
-      //--------------------------------------
-      //+ PUBLIC PROPERTIES / CONSTANTS
-      //--------------------------------------
-
-      //--------------------------------------
-      //+ INHERITED / OVERRIDES
-      //--------------------------------------
-
+      /**
+       * Initialize the app
+       * 
+       */
       initialize: function() {
 
           // Import views
@@ -157,7 +153,7 @@ window.require.define({"core/Collection": function(exports, require, module) {
    * @since  
    */
 
-  Collection = Backbone.Collection.extend({
+  var Collection = Backbone.Collection.extend({
 
   	//--------------------------------------
   	//+ PUBLIC PROPERTIES / CONSTANTS
@@ -194,7 +190,7 @@ window.require.define({"core/Model": function(exports, require, module) {
    * @since  
    */
 
-  Model = Backbone.Model.extend({
+  var Model = Backbone.Model.extend({
 
   	//--------------------------------------
   	//+ PUBLIC PROPERTIES / CONSTANTS
@@ -232,7 +228,7 @@ window.require.define({"core/Router": function(exports, require, module) {
    * @since  
    */
 
-  Router = Backbone.Router.extend({
+  var Router = Backbone.Router.extend({
 
   	//--------------------------------------
       //+ INHERITED / OVERRIDES
@@ -263,9 +259,7 @@ window.require.define({"core/View": function(exports, require, module) {
    * @since  
    */
 
-  require('helpers/ViewHelper');
-
-  View = Backbone.View.extend({
+  var View = Backbone.View.extend({
 
     //--------------------------------------
     //+ PUBLIC PROPERTIES / CONSTANTS
@@ -275,10 +269,7 @@ window.require.define({"core/View": function(exports, require, module) {
      * @private
      */
     template: function() {},
-    /*
-     * @private
-     */
-    getRenderData: function() {},
+    
 
     //--------------------------------------
     //+ INHERITED / OVERRIDES
@@ -288,23 +279,17 @@ window.require.define({"core/View": function(exports, require, module) {
      * @private
      */
     initialize: function() {
-      this.render = _.bind(this.render, this);
+      _.bindAll( this );
     },
 
     /*
      * @private
      */
     render: function() {
-      this.$el.html( this.template( this.getRenderData() ) );
-      this.afterRender();
+      this.$el.html( this.template() );
       
       return this;
     },
-
-    /*
-     * @private
-     */
-    afterRender: function() {}
 
     //--------------------------------------
     //+ PUBLIC METHODS / GETTERS / SETTERS
@@ -324,9 +309,9 @@ window.require.define({"core/View": function(exports, require, module) {
   
 }});
 
-window.require.define({"events/ApplicationEvents": function(exports, require, module) {
+window.require.define({"events/Event": function(exports, require, module) {
   /**
-   * Application Events
+   * General events
    * 
    * @langversion JavaScript
    * 
@@ -334,23 +319,15 @@ window.require.define({"events/ApplicationEvents": function(exports, require, mo
    * @since  
    */
 
-  var ApplicationEvents = (function() {
-
-  	/*
-     	 * @private
-  	 */
-  	var _applicationInitialized = "onApplicationInitialized";
-
+  var Event = {
+  	
   	/*
      	 * Public interface
   	 */
-  	return {
-  		APPLICATION_INITIALIZED: _applicationInitialized
-  	}
-  	
-  }).call();
+  	APPLICATION_INITIALIZED: 'onApplicationInitialized'
+  }
 
-  module.exports = ApplicationConfig;
+  module.exports = Event;
 }});
 
 window.require.define({"helpers/ViewHelper": function(exports, require, module) {
@@ -362,15 +339,6 @@ window.require.define({"helpers/ViewHelper": function(exports, require, module) 
    * @author 
    * @since  
    */
-
-
-  //--------------------------------------
-  //+ PUBLIC PROPERTIES / CONSTANTS
-  //--------------------------------------
-
-  //--------------------------------------
-  //+ PUBLIC METHODS / GETTERS / SETTERS
-  //--------------------------------------
 
   /*
   * @return String
@@ -424,7 +392,7 @@ window.require.define({"routers/ApplicationRouter": function(exports, require, m
   var Router = require('core/Router');
   var application = require('Application');
 
-  ApplicationRouter = Router.extend({
+  var ApplicationRouter = Router.extend({
 
   	//--------------------------------------
     	//+ Routes
@@ -459,11 +427,7 @@ window.require.define({"utils/BackboneView": function(exports, require, module) 
   var View     = require('core/View');
   var template = require('templates/HomeViewTemplate');
 
-  BackboneView = View.extend({
-
-  	//--------------------------------------
-  	//+ PUBLIC PROPERTIES / CONSTANTS
-  	//--------------------------------------
+  var BackboneView = View.extend({
 
     	/*
      	 * @private
@@ -473,6 +437,7 @@ window.require.define({"utils/BackboneView": function(exports, require, module) 
      	 * @private
      	*/
   	template: template,
+  	
 
   	//--------------------------------------
     	//+ INHERITED / OVERRIDES
@@ -489,18 +454,11 @@ window.require.define({"utils/BackboneView": function(exports, require, module) 
   	 * @private
   	 */
   	render: function() {
-  		this.$el.html( this.template( this.getRenderData() ) );
+  		this.$el.html( this.template({
+  			content: "View Content"
+  		}));
 
   		return this;
-  	},
-
-  	/*
-  	 * @private
-  	 */
-  	getRenderData: function() {
-  		return {
-  			content: "View Content"
-  		}
   	}
 
   	//--------------------------------------
@@ -533,11 +491,7 @@ window.require.define({"views/HomeView": function(exports, require, module) {
   var View     = require('core/View');
   var template = require('templates/homeViewTemplate');
 
-  HomeView = View.extend({
-
-  	//--------------------------------------
-  	//+ PUBLIC PROPERTIES / CONSTANTS
-  	//--------------------------------------
+  var HomeView = View.extend({
 
     	/*
      	 * @private
@@ -548,6 +502,7 @@ window.require.define({"views/HomeView": function(exports, require, module) {
      	*/
   	template: template,
 
+
   	//--------------------------------------
     	//+ INHERITED / OVERRIDES
     	//--------------------------------------
@@ -556,23 +511,14 @@ window.require.define({"views/HomeView": function(exports, require, module) {
   	 * @private
   	 */
   	initialize: function() {
-  		this.render = _.bind( this.render, this );
+  		_.bindAll( this );
   	},
 
   	/*
   	 * @private
   	 */
   	render: function() {
-  		this.$el.html( this.template( this.getRenderData() ) );
-
-  		return this;
-  	},
-
-  	/*
-  	 * @private
-  	 */
-  	getRenderData: function() {
-  		return {
+  		this.$el.html( this.template({
   			artist: "Robert Ashley",
   			operas: [
   				"Music with Roots in the Aether (television opera) (1976)",
@@ -585,7 +531,9 @@ window.require.define({"views/HomeView": function(exports, require, module) {
   				"Celestial excursions (2003)",
   				"Concrete (2006)"
   			]
-  		}
+  		}));
+
+  		return this;
   	}
 
   	//--------------------------------------

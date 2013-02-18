@@ -66,20 +66,19 @@ td { vertical-align: top; }
 /**
  * Primary Application Stylesheet
  * 
- * @langversion Stylus
+ * @langversion SASS (http://sass-lang.com/)
  * 
  * @author Christopher Pappas
  * @since  Month 00, 2012
  */
+@media -sass-debug-info{filename{}line{font-family:\0000310}}
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
+
+@media -sass-debug-info{filename{}line{font-family:\0000314}}
 #home-view {
   width: 1003px;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
 .ir br { display: none; }
 .hidden { display: none !important; visibility: hidden; }

@@ -75,45 +75,46 @@
 })();
 
 window.require.define({"test/test-helpers": function(exports, require, module) {
-  var chai, sinonChai;
+  // This file will be automatically required when using `brunch test` command.
+  var chai = require( 'chai' );
+  var sinonChai = require( 'sinon-chai' );
 
-  chai = require('chai');
-
-  sinonChai = require('sinon-chai');
-
-  chai.use(sinonChai);
+  chai.use( sinonChai );
 
   module.exports = {
     expect: chai.expect,
-    sinon: require('sinon')
+    sinon: require( 'sinon' )
   };
   
 }});
 
 window.require.define({"test/views/HomeView_test": function(exports, require, module) {
-  var HomeView;
+  var HomeView = require( 'views/HomeView' );
+  var view;
 
-  HomeView = require('views/HomeView');
+  describe( 'HomeView', function() {
+    beforeEach( function() {
+      view = new HomeView();
+      view.render();
+    });
 
-  describe('HomeView', function() {
-    beforeEach(function() {
-      this.view = new HomeView();
-      return this.view.render();
+    afterEach( function() { 
+      view.remove();
     });
-    afterEach(function() {
-      return this.view.remove();
+      
+    it( 'Should display an artist', function() {
+      expect( view.$el.find('#artist') ).to.have.length( 1 );
     });
-    it('Should display an artist', function() {
-      return expect(this.view.$el.find('#artist')).to.have.length(1);
+      
+    it( 'The artist should be Robert Ashley', function() {
+      expect( view.$el.find('#artist').text()).to.equal( 'Robert Ashley' );
     });
-    it('The artist should be Robert Ashley', function() {
-      return expect(this.view.$el.find('#artist').text()).to.equal('Robert Ashley');
+      
+    it( 'Should list nine operas', function() {
+      expect( view.$el.find('#operas').find('li')).to.have.length( 9 );
     });
-    return it('Should list seven operas', function() {
-      return expect(this.view.$el.find('#operas').find('li')).to.have.length(9);
-    });
+      
   });
-  
 }});
 
 window.require('test/views/HomeView_test');
