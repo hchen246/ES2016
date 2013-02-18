@@ -7,9 +7,7 @@
  * @since  
  */
 
-require('helpers/ViewHelper');
-
-View = Backbone.View.extend({
+var View = Backbone.View.extend({
 
   //--------------------------------------
   //+ PUBLIC PROPERTIES / CONSTANTS
@@ -19,10 +17,7 @@ View = Backbone.View.extend({
    * @private
    */
   template: function() {},
-  /*
-   * @private
-   */
-  getRenderData: function() {},
+  
 
   //--------------------------------------
   //+ INHERITED / OVERRIDES
@@ -32,23 +27,17 @@ View = Backbone.View.extend({
    * @private
    */
   initialize: function() {
-    this.render = _.bind(this.render, this);
+    _.bindAll( this );
   },
 
   /*
    * @private
    */
   render: function() {
-    this.$el.html( this.template( this.getRenderData() ) );
-    this.afterRender();
+    this.$el.html( this.template() );
     
     return this;
   },
-
-  /*
-   * @private
-   */
-  afterRender: function() {}
 
   //--------------------------------------
   //+ PUBLIC METHODS / GETTERS / SETTERS

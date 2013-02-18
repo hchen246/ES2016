@@ -13,16 +13,12 @@
  * @since  
  */
 
-Application = {
+var Application = {
 
-    //--------------------------------------
-    //+ PUBLIC PROPERTIES / CONSTANTS
-    //--------------------------------------
-
-    //--------------------------------------
-    //+ INHERITED / OVERRIDES
-    //--------------------------------------
-
+    /**
+     * Initialize the app
+     * 
+     */
     initialize: function() {
 
         // Import views

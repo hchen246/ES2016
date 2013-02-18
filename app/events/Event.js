@@ -1,5 +1,5 @@
 /**
- * Application Events
+ * General events
  * 
  * @langversion JavaScript
  * 
@@ -7,7 +7,7 @@
  * @since  
  */
 
-var ApplicationEvents = {
+var Event = {
 	
 	/*
    	 * Public interface
@@ -15,4 +15,4 @@ var ApplicationEvents = {
 	APPLICATION_INITIALIZED: 'onApplicationInitialized'
 }
 
-module.exports = ApplicationConfig;
+module.exports = Event;

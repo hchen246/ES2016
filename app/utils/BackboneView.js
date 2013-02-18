@@ -10,11 +10,7 @@
 var View     = require('core/View');
 var template = require('templates/HomeViewTemplate');
 
-BackboneView = View.extend({
-
-	//--------------------------------------
-	//+ PUBLIC PROPERTIES / CONSTANTS
-	//--------------------------------------
+var BackboneView = View.extend({
 
   	/*
    	 * @private
@@ -24,6 +20,7 @@ BackboneView = View.extend({
    	 * @private
    	*/
 	template: template,
+	
 
 	//--------------------------------------
   	//+ INHERITED / OVERRIDES
@@ -40,18 +37,11 @@ BackboneView = View.extend({
 	 * @private
 	 */
 	render: function() {
-		this.$el.html( this.template( this.getRenderData() ) );
+		this.$el.html( this.template({
+			content: "View Content"
+		}));
 
 		return this;
-	},
-
-	/*
-	 * @private
-	 */
-	getRenderData: function() {
-		return {
-			content: "View Content"
-		}
 	}
 
 	//--------------------------------------

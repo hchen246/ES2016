@@ -10,7 +10,7 @@
 var Router = require('core/Router');
 var application = require('Application');
 
-ApplicationRouter = Router.extend({
+var ApplicationRouter = Router.extend({
 
 	//--------------------------------------
   	//+ Routes
