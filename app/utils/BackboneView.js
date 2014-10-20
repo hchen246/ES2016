@@ -1,10 +1,10 @@
 /**
  * View Description
- * 
+ *
  * @langversion JavaScript
- * 
- * @author 
- * @since  
+ *
+ * @author
+ * @since
  */
 
 var View     = require('core/View');
@@ -12,49 +12,23 @@ var template = require('templates/HomeViewTemplate');
 
 var BackboneView = View.extend({
 
-  	/*
-   	 * @private
-	 */
-	id: 'view',
-	/*
-   	 * @private
-   	*/
-	template: template,
-	
+  className: 'view',
 
-	//--------------------------------------
-  	//+ INHERITED / OVERRIDES
-  	//--------------------------------------
+  template: template,
 
-	/*
-	 * @private
-	 */
-	initialize: function() {
-		this.render = _.bind( this.render, this );
-	},
 
-	/*
-	 * @private
-	 */
-	render: function() {
-		this.$el.html( this.template({
-			content: "View Content"
-		}));
+  initialize: function() {
+    this.render = _.bind( this.render, this );
+  },
 
-		return this;
-	}
 
-	//--------------------------------------
-	//+ PUBLIC METHODS / GETTERS / SETTERS
-	//--------------------------------------
+  render: function() {
+    this.$el.html( this.template({
+      content: "View Content"
+    }));
 
-	//--------------------------------------
-	//+ EVENT HANDLERS
-	//--------------------------------------
-
-	//--------------------------------------
-	//+ PRIVATE AND PROTECTED METHODS
-	//--------------------------------------
+    return this;
+  }
 
 });
 

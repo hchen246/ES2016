@@ -1,18 +1,16 @@
 /**
  * General events
- * 
+ *
  * @langversion JavaScript
- * 
- * @author 
- * @since  
+ *
+ * @author
+ * @since
  */
 
 var Event = {
-	
-	/*
-   	 * Public interface
-	 */
-	APPLICATION_INITIALIZED: 'onApplicationInitialized'
+
+  INITIALIZED: 'onInitialized'
+
 }
 
 module.exports = Event;

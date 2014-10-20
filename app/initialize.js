@@ -1,20 +1,20 @@
 
 /**
  * Application Initializer
- * 
+ *
  * @langversion JavaScript
- * 
- * @author 
- * @since  
+ *
+ * @author
+ * @since
  */
 
 var application = require('Application');
 
 $(function() {
 
-	// Initialize Application
-	application.initialize();
+  // Initialize Application
+  application.initialize();
 
-	// Start Backbone router
-  	Backbone.history.start();
+  // Start Backbone router
+  Backbone.history.start();
 });

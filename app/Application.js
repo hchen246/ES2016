@@ -1,36 +1,36 @@
 //JavaScript////////////////////////////////////////////////////////////////////
-// 
-// Copyright 2012 
-// 
+//
+// Copyright 2012
+//
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Application Bootstrapper
- * 
+ *
  * @langversion JavaScript
- * 
- * @author 
- * @since  
+ *
+ * @author
+ * @since
  */
 
 var Application = {
 
-    /**
-     * Initialize the app
-     * 
-     */
-    initialize: function() {
+  /**
+   * Initialize the app
+   *
+   */
+  initialize: function() {
 
-        // Import views
-        var HomeView = require('views/HomeView');
-        var ApplicationRouter = require('routers/ApplicationRouter');
+    // Import views
+    var HomeView = require('views/HomeView');
+    var ApplicationRouter = require('routers/ApplicationRouter');
 
-        // Initialize views
-        this.homeView = new HomeView();
-        this.applicationRouter = new ApplicationRouter();
+    // Initialize views
+    this.homeView = new HomeView();
+    this.applicationRouter = new ApplicationRouter();
 
-        if (typeof Object.freeze === 'function') Object.freeze(this);
-    }
+    if (typeof Object.freeze === 'function') Object.freeze(this);
+  }
 }
 
 module.exports = Application;

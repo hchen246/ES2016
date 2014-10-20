@@ -1,28 +1,19 @@
 /**
  * Backbone Primary Router
- * 
+ *
  * @langversion JavaScript
- * 
- * @author 
- * @since  
+ *
+ * @author
+ * @since
  */
 
 var Router = Backbone.Router.extend({
 
-	//--------------------------------------
-    //+ INHERITED / OVERRIDES
-    //--------------------------------------
-    
-	routes: {},
+  routes: {},
 
-    /**
-     * Initializes the Base router
-     * @param  {Object} options 
-     * 
-     */
-    initialize: function( options ) {
+  initialize: function (options) {
 
-    }
+  }
 });
 
 module.exports = Router;

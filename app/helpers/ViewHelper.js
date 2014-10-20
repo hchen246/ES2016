@@ -1,15 +1,12 @@
 /**
  * Handlebars Template Helpers
- * 
+ *
  * @langversion JavaScript
- * 
- * @author 
- * @since  
+ *
+ * @author
+ * @since
  */
 
-/*
-* @return String
-*/
 Handlebars.registerHelper( 'link', function( text, url ) {
 
   text = Handlebars.Utils.escapeExpression( text );

@@ -1,26 +1,16 @@
 /**
  * Application Configuration
- * 
+ *
  * @langversion JavaScript
- * 
- * @author 
- * @since  
+ *
+ * @author
+ * @since
  */
 
-var ApplicationConfig = (function() {
+var ApplicationConfig = {
 
-	/*
-   	 * @private
-	 */
-	var _baseUrl = "/";
+  BASE_URL: '/'
 
-	/*
-   	 * Public interface
-	 */
-	return {
-		BASE_URL: _baseUrl
-	}
-
-}).call()
+}
 
 module.exports = ApplicationConfig;
