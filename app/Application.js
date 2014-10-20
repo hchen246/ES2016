@@ -11,11 +11,9 @@ var Application = {
 
   initialize: function() {
 
-    // Import views
     var HomeView = require('views/HomeView');
     var ApplicationRouter = require('routers/ApplicationRouter');
 
-    // Initialize views
     this.homeView = new HomeView();
     this.applicationRouter = new ApplicationRouter();
 
